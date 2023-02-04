@@ -2,6 +2,11 @@
 --▀█▀ █░█ █ █▀   █▀ █▀▀ █▀█ █ █▀█ ▀█▀   █░█░█ ▄▀█ █▀   █▀▄▀█ ▄▀█ █▀▄ █▀▀   █▄▄ █▄█   █▀▀ █░░ █░█ ▄▀█ █▀▄
 --░█░ █▀█ █ ▄█   ▄█ █▄▄ █▀▄ █ █▀▀ ░█░   ▀▄▀▄▀ █▀█ ▄█   █░▀░█ █▀█ █▄▀ ██▄   █▄█ ░█░   █▄▄ █▄▄ ▀▀█ █▀█ █▄▀
 
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local Gui = Instance.new("ScreenGui")
 local bgFrame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
@@ -123,7 +128,7 @@ local function XHPC_fake_script() -- Gui.Handler
 	end)
 	
 	infYield.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet(('https://pastebin.com/raw/MjBzRjmT'),true))()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 	end)
 end
 coroutine.wrap(XHPC_fake_script)()
