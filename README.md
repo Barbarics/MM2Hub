@@ -14,18 +14,22 @@ local WsB = Instance.new("TextButton")
 local JpB = Instance.new("TextButton")
 local TptoG = Instance.new("TextButton")
 local InfYield = Instance.new("TextButton")
+local RoStumble = Instance.new("TextButton")
 
 --Properties:
 
 Gui.Name = "Gui"
 Gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Gui.ResetOnSpawn = false
 
 bgFrame.Name = "bgFrame"
 bgFrame.Parent = Gui
+bgFrame.Active = true
 bgFrame.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
 bgFrame.BorderColor3 = Color3.fromRGB(112, 29, 255)
-bgFrame.Position = UDim2.new(0.0608531982, 0, 0.517456353, 0)
+bgFrame.Draggable = true
+bgFrame.Position = UDim2.new(0.0608531982, 260, 0.517456353, -102)
 bgFrame.Size = UDim2.new(0, 499, 0, 291)
 
 TextLabel.Parent = bgFrame
@@ -91,44 +95,56 @@ InfYield.TextScaled = true
 InfYield.TextSize = 14.000
 InfYield.TextWrapped = true
 
--- Scripts:
+RoStumble.Name = "RoStumble"
+RoStumble.Parent = bgFrame
+RoStumble.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+RoStumble.BorderColor3 = Color3.fromRGB(112, 29, 255)
+RoStumble.Position = UDim2.new(0.0658993125, 0, 0.720831037, 0)
+RoStumble.Size = UDim2.new(0, 200, 0, 44)
+RoStumble.Font = Enum.Font.Code
+RoStumble.Text = "RoStumble"
+RoStumble.TextColor3 = Color3.fromRGB(255, 255, 255)
+RoStumble.TextScaled = true
+RoStumble.TextSize = 14.000
+RoStumble.TextWrapped = true
+
 
 local function XHPC_fake_script() -- Gui.Handler 
 	local script = Instance.new('LocalScript', Gui)
 
 	local gui = script.Parent
 	gui.ResetOnSpawn = false
-	
+
 	local frame = gui.bgFrame
 	frame.Active = true
 	frame.Draggable = true
-	
+
 	local WsB = frame.WsB
 	local JpB = frame.JpB
 	local TptoG = frame.TptoG
 	local infYield = frame.InfYield
-	
+
 	local tweenService = game:GetService("TweenService")
-	
+
 	-- -- -- -- -- -- --
-	
+
 	-----
-	
+
 	WsB.MouseButton1Click:Connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 32
 	end)
-	
+
 	JpB.MouseButton1Click:Connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 75
 	end)
-	
+
 	TptoG.MouseButton1Click:Connect(function()
 		local gunTween = tweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{CFrame = workspace.GunDrop.CFrame})
 		gunTween:Play()
 	end)
 	
-	infYield.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	RoStumble.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet(("https://raw.githubusercontent.com/GeekedUp44/RoStumbling/main/README.md"),true))()
 	end)
 end
 coroutine.wrap(XHPC_fake_script)()
